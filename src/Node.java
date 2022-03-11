@@ -1,14 +1,16 @@
 import java.util.*;
 
-public class Node {
+public class Node implements Comparator<Node> {
     public int id;
-    public List<Edge> edges;
+    public int cost;
 
-    Node(int id){
+    public Node() {};
+    public Node(int id, int cost){
         this.id = id;
+        this.cost = cost;
     }
 
-    public void addEdge(Edge edge){
-        edges.add(edge);
+    @Override public int compare(Node node1, Node node2){
+        return Integer.compare(node1.cost, node2.cost);
     }
 }
